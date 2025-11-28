@@ -18,8 +18,6 @@ export default function CreateListingScreen({ navigation }) {
             Alert.alert('Error', 'Please fill in all required fields');
             return;
         }
-
-        // here you'd save to backend/storage
         Alert.alert('Success', 'Listing created!', [
             { text: 'OK', onPress: () => navigation.goBack() }
         ]);
