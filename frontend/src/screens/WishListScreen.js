@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { useAppContext } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function WishListScreen({ navigation }) {
   const { wishlist, removeWishlistItem } = useAppContext();
@@ -44,6 +45,7 @@ export default function WishListScreen({ navigation }) {
   );
 
   return (
+    <SafeAreaView style={styles.container}>
     <View style={styles.container}>
       <Text style={styles.heading}>My Wishlist</Text>
 
@@ -62,6 +64,7 @@ export default function WishListScreen({ navigation }) {
         }
       />
     </View>
+    </SafeAreaView>
   );
 }
 

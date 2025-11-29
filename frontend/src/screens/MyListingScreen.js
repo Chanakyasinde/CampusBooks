@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import { useAppContext } from "../context/AppContext";
 import { COLORS } from "../utils/constants";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 
 export default function MyListingScreen({ navigation }) {
   const { books, changeStatus, deleteListing } = useAppContext();
@@ -86,15 +88,10 @@ export default function MyListingScreen({ navigation }) {
   );
 
   return (
+    <SafeAreaView style={styles.container}>
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.heading}>My Listings</Text>
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => navigation.navigate("CreateListing")}
-        >
-          <Text style={styles.addButtonText}>+ New</Text>
-        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -105,19 +102,12 @@ export default function MyListingScreen({ navigation }) {
         ListEmptyComponent={
           <View style={styles.empty}>
             <Text style={styles.emptyText}>No listings yet</Text>
-            <TouchableOpacity
-              style={styles.emptyButton}
-              onPress={() => navigation.navigate("CreateListing")}
-            >
-              <Text style={styles.emptyButtonText}>
-                Create Your First Listing
-              </Text>
-            </TouchableOpacity>
-
           </View>
         }
       />
     </View>
+    </SafeAreaView>
+
   );
 }
 
