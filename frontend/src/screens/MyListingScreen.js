@@ -113,11 +113,51 @@ export default function MyListingScreen({ navigation }) {
                 Create Your First Listing
               </Text>
             </TouchableOpacity>
-          </View>
-        }
-      />
-    </View>
-  );
+
+
+            <View style={styles.actions}>
+                <TouchableOpacity
+                    style={styles.actionButton}
+                    onPress={() => toggleStatus(item.id)}
+                >
+                    <Text style={styles.actionText}>
+                        {item.status === 'Available' ? 'Mark Sold' : 'Mark Available'}
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    style={[styles.actionButton, styles.deleteButton]}
+                    onPress={() => deleteListing(item.id)}
+                >
+                    <Text style={[styles.actionText, styles.deleteText]}>Delete</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <Text style={styles.heading}>My Listings</Text>
+                
+            </View>
+
+            <FlatList
+                data={myBooks}
+                renderItem={renderBook}
+                keyExtractor={item => item.id}
+                contentContainerStyle={styles.list}
+                ListEmptyComponent={
+                    <View style={styles.empty}>
+                        <Text style={styles.emptyText}>No listings yet</Text>
+                        <Text style={styles.emptyText}>You can add Listing using 'Add Book' </Text>
+                        
+                    </View>
+                }
+            />
+        </View>
+    );
+
 }
 
 const styles = StyleSheet.create({
