@@ -94,12 +94,7 @@ export default function MyListingScreen({ navigation }) {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.heading}>My Listings</Text>
-                <TouchableOpacity
-                    style={styles.addButton}
-                    onPress={() => navigation.navigate('CreateListing')}
-                >
-                    <Text style={styles.addButtonText}>+ New</Text>
-                </TouchableOpacity>
+                
             </View>
 
             <FlatList
@@ -110,12 +105,8 @@ export default function MyListingScreen({ navigation }) {
                 ListEmptyComponent={
                     <View style={styles.empty}>
                         <Text style={styles.emptyText}>No listings yet</Text>
-                        <TouchableOpacity
-                            style={styles.emptyButton}
-                            onPress={() => navigation.navigate('CreateListing')}
-                        >
-                            <Text style={styles.emptyButtonText}>Create Your First Listing</Text>
-                        </TouchableOpacity>
+                        <Text style={styles.emptyText}>You can add Listing using 'Add Book' </Text>
+                        
                     </View>
                 }
             />
